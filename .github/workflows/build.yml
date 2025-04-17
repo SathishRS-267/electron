@@ -27,8 +27,8 @@ jobs:
       - name: Build Electron app
         run: npm run electron-build
 
-      - name: Upload build
-        uses: actions/upload-artifact@v3.1.2
-        with:
-          name: MyApp-${{ matrix.os }}
-          path: public/
+      # - name: Upload build
+      #   uses: actions/upload-artifact@v3.1.2
+      #   with:
+      #     name: MyApp-${{ matrix.os }}
+      #     path: public/

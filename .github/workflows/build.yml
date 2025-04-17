@@ -26,14 +26,17 @@ jobs:
       - name: Install dependencies
         run: npm install --legacy-peer-deps
 
-      - name: Install dependencies
+      - name: Build React app
         run: npm run build
 
       - name: Build Electron app
         run: npm run electron-build
 
-      # - name: Upload build artifact
-      #   uses: actions/upload-artifact@v3
-      #   with:
-      #     name: MyApp-${{ matrix.os }}
-      #     path: public/
+      - name: Check output folder contents
+        run: ls -R public/
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: MyApp-${{ matrix.os }}
+          path: public/

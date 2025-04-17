@@ -10,7 +10,8 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [windows-latest, macos-latest, ubuntu-latest]
+        # os: [windows-latest, macos-latest, ubuntu-latest]
+        os: [macos-latest]
 
     env:
       GH_TOKEN: ${{ secrets.GH_TOKEN }}  # Required for electron-builder if publishing
@@ -28,23 +29,8 @@ jobs:
       - name: Install dependencies
         run: npm install --legacy-peer-deps
 
-      - name: Install snapcraft
-        if: matrix.os == 'ubuntu-latest'
-        run: sudo snap install snapcraft --classic
-
-
       - name: Build React app
         run: npm run build
 
       - name: Build Electron app
         run: npm run electron-build
-
-      - name: Check output folder contents
-        run: ls -R public/
-
-      # - name: Upload build artifact
-      #   uses: actions/upload-artifact@d9461563c213db9745b3d3ddba8f482420b26518
-      #   with:
-      #     name: MyApp-${{ matrix.os }}
-      #     path: dist/
-

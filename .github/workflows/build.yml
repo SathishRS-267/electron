@@ -36,8 +36,8 @@ jobs:
         run: ls -R public/
 
       - name: Upload build artifact
-        uses: actions/upload-artifact@v3.1.3
+        uses: actions/upload-artifact@d9461563c213db9745b3d3ddba8f482420b26518
         with:
           name: MyApp-${{ matrix.os }}
-          path: public/
+          path: dist/
 

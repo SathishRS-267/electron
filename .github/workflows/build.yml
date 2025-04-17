@@ -14,8 +14,7 @@ jobs:
         os: [macos-latest]
 
     env:
-      GH_TOKEN: ${{ secrets.GH_TOKEN }}  # Required for electron-builder if publishing
-      GH_TOKEN_1: ${{ secrets.GH_TOKEN_1 }}  # Optional: expose original name too
+      GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
     steps:
       - name: Checkout repository

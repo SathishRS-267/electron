@@ -44,21 +44,15 @@
     "directories": {
       "output": "public"
     },
-    "win": {
-      "target": "nsis"
-    },
     "mac": {
-      "target": [
-        {
-          "target": "dmg",
-          "arch": [
-            "universal"
-          ]
-        }
-      ]
+      "identity": null,
+      "target": ["dmg", "zip"]
+    },
+    "win": {
+      "target": ["nsis", "zip"]
     },
     "linux": {
-      "target": ["AppImage"]
+      "target": ["AppImage", "deb"]
     },
     "nsis": {
       "oneClick": false,

@@ -1,31 +1,34 @@
-name: Build Electron App
+name: Electron Build
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
+  pull_request:
+    branches: [main]
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3.5.2
+      - uses: actions/checkout@v3
 
-      - name: Set up Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v3.8.1
         with:
           node-version: 18
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
-      - name: Build Electron App
+      - name: Build Electron app
         run: npm run electron-build
 
-      - name: Upload build artifact
-        uses: actions/upload-artifact@v3
+      - name: Upload build
+        uses: actions/upload-artifact@v3.1.2
         with:
           name: MyApp-${{ matrix.os }}
           path: public/
-      

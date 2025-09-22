@@ -10,7 +10,7 @@
     "build": "tsc -b && vite build",
     "electron": "tsc -p tsconfig.electron.json && electron dist-electron/main.js",
     "release": "standard-version",
-    "electron-build": "tsc -p tsconfig.electron.json && electron-builder --mac --win --linux --publish always",
+    "electron-build": "tsc -p tsconfig.electron.json && electron-builder --win --publish always",
     "lint": "eslint .",
     "preview": "vite preview"
   },

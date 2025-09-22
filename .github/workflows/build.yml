@@ -37,3 +37,16 @@ jobs:
 
       - name: Build Electron app
         run: npm run electron-build
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: electron-build-${{ matrix.os }}
+          path: |
+            dist/*.exe
+            dist/*.dmg
+            dist/*.AppImage
+            dist/*.deb
+            dist/*.rpm
+            dist/**/*.zip
+

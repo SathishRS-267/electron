@@ -42,9 +42,9 @@ jobs:
         with:
           name: electron-build-${{ matrix.os }}
           path: |
-            dist/*.exe
-            dist/*.dmg
-            dist/*.AppImage
-            dist/*.deb
-            dist/*.rpm
-            dist/**/*.zip
+            public/*.exe
+            public/*.dmg
+            public/*.AppImage
+            public/*.deb
+            public/*.rpm
+            public/**/*.zip
